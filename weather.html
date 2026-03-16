@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Weather App</title>
+
+<style>
+
+body{
+font-family: Arial;
+background: linear-gradient(135deg,#3b82f6,#22c55e);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.container{
+background:white;
+padding:30px;
+border-radius:15px;
+width:320px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+h1{
+margin-bottom:20px;
+}
+
+input{
+padding:10px;
+width:70%;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+button{
+padding:10px;
+border:none;
+background:#3b82f6;
+color:white;
+border-radius:8px;
+cursor:pointer;
+}
+
+.result{
+margin-top:20px;
+font-size:18px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Weather App</h1>
+
+<input id="city" placeholder="Enter city">
+<button onclick="checkWeather()">Search</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+<script>
+
+function checkWeather(){
+
+let city=document.getElementById("city").value.toLowerCase();
+
+let weatherData={
+"london":{temp:"15°C",weather:"Cloudy"},
+"new york":{temp:"20°C",weather:"Sunny"},
+"tokyo":{temp:"18°C",weather:"Rainy"},
+"paris":{temp:"17°C",weather:"Windy"},
+"delhi":{temp:"30°C",weather:"Hot"}
+};
+
+if(weatherData[city]){
+document.getElementById("result").innerHTML=
+"Temperature: "+weatherData[city].temp+
+"<br>Weather: "+weatherData[city].weather;
+}
+else{
+document.getElementById("result").innerHTML="City data not available";
+}
+
+}
+
+</script>
+
+</body>
+</html>
